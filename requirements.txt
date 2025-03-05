@@ -4,3 +4,5 @@ scikit-learn>=1.0.0
 ripser==0.6.4
 persim==0.3.1
 matplotlib>=3.5.0
+pytest>=7.0.0  # Add pytest for testing
+pytest-cov    # Add pytest-cov for coverage reports
