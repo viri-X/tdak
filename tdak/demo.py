@@ -5,22 +5,44 @@ from tdak.network import ClusterGenerator
 from tdak.topology import TopologyAnalyzer
 from tdak.analysis import ClusterAnalyzer
 
-def main(failure_type, num_zones=3):
+def main():
+    parser = argparse.ArgumentParser(
+        description='''
+
+        ████████╗██████╗  █████╗ ██╗  ██╗
+        ╚══██╔══╝██╔══██╗██╔══██╗██║ ██╔╝
+           ██║   ██║  ██║███████║█████╔╝ 
+           ██║   ██║  ██║██╔══██║██╔═██╗ 
+           ██║   ██████╔╝██║  ██║██║  ██╗
+           ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+        Topological Kubernetes Failure Detection
+        ''',
+        formatter_class=argparse.RawTextHelpFormatter
+    )
+    parser.add_argument('failure', choices=[
+        'zone_outage', 'storage_failure', 
+        'network_congestion', 'dns_failure', 
+        'pod_overload'
+    ], help='Failure type to simulate')
+    parser.add_argument('--zones', type=int, default=3,
+                       help='Number of availability zones')
+    args = parser.parse_args()
+
     # Initialize components
-    gen = ClusterGenerator(num_zones)
+    gen = ClusterGenerator(args.zones)
     topo = TopologyAnalyzer()
     analyzer = ClusterAnalyzer()
     
     # Generate cluster state
     nodes = gen.generate_cluster()
-    print(f"\n 🌐 Generated cluster with {len(nodes)} nodes across {num_zones} zones")
+    print(f"\n 🌐 Generated cluster with {len(nodes)} nodes across {args.zones} zones")
     
     # Compute initial topologies
     metric_initial = topo.compute_metric_persistence(nodes)
     network_initial = topo.compute_network_persistence(gen.service_deps)
     
     # Inject failure and compute new state
-    failed_nodes = gen.inject_failure(nodes, failure_type)
+    failed_nodes = gen.inject_failure(nodes, args.failure)
     metric_failed = topo.compute_metric_persistence(failed_nodes)
     network_failed = topo.compute_network_persistence(gen.service_deps)
     
@@ -28,13 +50,13 @@ def main(failure_type, num_zones=3):
     report = analyzer.analyze(
         metric_initial, metric_failed,
         network_initial, network_failed,
-        failure_type,
+        args.failure,
         failed_nodes  # parameter added
     )
     
     # Generate report
     print(f"\n🔍 {' FAILURE ANALYSIS REPORT ':=^80}")
-    print(f"\n🚨 Failure Type: {failure_type.upper()}")
+    print(f"\n🚨 Failure Type: {args.failure.upper()}")
     
     # Metric space findings
     print(f"\n📊 {' METRIC SPACE ANALYSIS ':-^80}")
@@ -80,27 +102,6 @@ def main(failure_type, num_zones=3):
     plt.show() # Pop up interactive matplotlib window
     
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description='''
-
-        ████████╗██████╗  █████╗ ██╗  ██╗
-        ╚══██╔══╝██╔══██╗██╔══██╗██║ ██╔╝
-           ██║   ██║  ██║███████║█████╔╝ 
-           ██║   ██║  ██║██╔══██║██╔═██╗ 
-           ██║   ██████╔╝██║  ██║██║  ██╗
-           ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-        Topological Kubernetes Failure Detection
-        ''',
-        formatter_class=argparse.RawTextHelpFormatter
-    )
-    parser.add_argument('failure', choices=[
-        'zone_outage', 'storage_failure', 
-        'network_congestion', 'dns_failure', 
-        'pod_overload'
-    ], help='Failure type to simulate')
-    parser.add_argument('--zones', type=int, default=3,
-                       help='Number of availability zones')
-    args = parser.parse_args()
-    main(args.failure, args.zones)
+    main()
     
     

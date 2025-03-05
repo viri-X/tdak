@@ -10,7 +10,7 @@ setup(
     install_requires=requirements,
     entry_points={
         "console_scripts": [
-            "tdak-demo=demo:main",  # ¡Crea el comando!
+            "tdak-demo=tdak.demo:main",  # ¡set up the commad
         ],
     }
 )

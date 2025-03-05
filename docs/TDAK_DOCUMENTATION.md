@@ -1,3 +1,75 @@
+# TDAK Documentation
+
+:construction: This documentation is currently under construction. Consider it a placeholder for now.
+
+## Table of Contents
+1. [Theoretical Foundations](#1-theoretical-foundations)  
+2. [Installation Guide](#2-installation-guide)  
+3. [CLI Reference](#3-cli-reference)  
+4. [API Documentation](#4-api-documentation)  
+5. [Failure Type Catalog](#5-failure-type-catalog)  
+6. [Advanced Configuration](#6-advanced-configuration)  
+
+## 1. Theoretical Foundations
+### Persistent Homology in K8s
+Explanation of how topological features correspond to network states...
+
+```python
+# Example: Tracking H1 cycles
+diagrams = analyzer.compute_network_persistence(dependencies)
+```
+
+## 2. Installation Guide
+### Kubernetes Integration
+```bash
+helm install tdak ./charts --set zones=5
+```
+
+## 3. CLI Reference
+### Command Structure
+```bash
+tdak-demo [FAILURE_TYPE] [--zones NUM] [--output FORMAT]
+```
+
+| Argument       | Description                              | Default |
+|----------------|------------------------------------------|---------|
+| `--zones`      | Number of availability zones            | 3       |
+| `--threshold`  | Persistence threshold for filtering     | 0.15    |
+
+## 4. API Documentation
+### Core Classes
+```python
+class ClusterGenerator:
+    """Simulates Kubernetes cluster states with failure injection"""
+    
+    def inject_failure(self, nodes, failure_type):
+        """Apply specified failure pattern to cluster"""
+```
+
+## 5. Failure Type Catalog
+| Failure        | Topological Signature           | Detection Metrics       |
+|----------------|----------------------------------|-------------------------|
+| Zone Outage    | H0 network components ↑↑        | Wasserstein > 1.5       |
+| DNS Failure    | H1 cycles ↓↓                    | Entropy Δ > 0.4         |
+
+## 6. Advanced Configuration
+### Custom Metrics
+```yaml
+# config.yaml
+metrics:
+  - name: custom_metric
+    weights: [0.3, 0.7]
+    thresholds:
+      H0: 0.45
+```
+
+
+
+##Older TDAK DOCUMENTATION
+
+
+
+
 # TDAK: Topological Detection of Anomalies in Kubernetes
 
 ## 1. Data Flow Overview
