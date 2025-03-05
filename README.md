@@ -74,3 +74,6 @@ pytest tests/
 | DNS Failures          | Disable 50% dependencies                      | Broken edges in network complex           |
 | Storage Failures      | Max storage on 25% nodes                      | Metric space outliers                     |
 
+## Author
+[Mauricio Sturla]  
+Email: sturla.mauricio@gmail.com 
