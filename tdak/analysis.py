@@ -194,3 +194,12 @@ class ClusterAnalyzer:
         if len(network_dgms) == 0 or len(network_dgms[0]) == 0:
             return 0
         return len(network_dgms[0])  # H0 components ≈ active dependencies
+    
+    def validate_signature(self, report, failure_type):
+        """Simplified signature validation for testing"""
+        if failure_type == "zone_outage":
+            return (
+                report['network']['h0']['component_diff'] >= 2
+                and report['metric']['h0']['wasserstein'] > 1.0
+            )
+        return False

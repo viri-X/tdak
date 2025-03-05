@@ -47,8 +47,8 @@ tdak-demo dns_failure --zones 15
 For full options:
 
 ```bash
-
 tdak-dem --help
+```
 
 
 ## Documentation Hub
@@ -62,23 +62,6 @@ git clone https://github.com/viri-X/tdak.git
 pip install -e .[dev]
 pytest tests/
 ```
-
-
-# Future version V2
-
-
-# Kubernetes Failure Detection with Topological Data Analysis
-
-# TDAK - Topological Kubernetes Failure Detection
-
-[![Tests](https://github.com/viri-X/tdak/actions/workflows/tests.yml/badge.svg)](https://github.com/viri-X/tdak/actions)
-
-Detects failures in Kubernetes networks through topological analysis.
-
-
-
-## Documentation
-See [docs/TDAK_DOCUMENTATION.md](docs/TDAK_DOCUMENTATION.md)
 
 
 ## Enhanced Failure Modes

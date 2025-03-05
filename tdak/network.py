@@ -22,6 +22,10 @@ class ServiceDependency:
     target: str
     latency_ms: float
     active: bool = True
+    
+    def __post_init__(self):
+        if self.latency_ms < 0:
+            raise ValueError("Latency cannot be negative")
 
 class ClusterGenerator:
     def __init__(self, num_zones=3):

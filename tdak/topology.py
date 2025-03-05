@@ -1,4 +1,5 @@
 # tdak/topology.py
+import warnings
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 import ripser
@@ -16,10 +17,15 @@ class TopologyAnalyzer:
              n.storage_usage]
             for n in nodes
         ])
-        dgms = ripser.ripser(self.scaler.fit_transform(X), maxdim=2)['dgms']
-    
-        # Filter out points with infinite death times
+
+        # Preserve scaling while handling warnings
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", UserWarning)
+            scaled_X = self.scaler.fit_transform(X)
+            dgms = ripser.ripser(scaled_X, maxdim=2)['dgms']
+            
         return [self._filter_finite_points(d) for d in dgms]
+    
 
     '''def compute_network_persistence(self, service_deps):
         """Network analysis with finite point filtering"""
