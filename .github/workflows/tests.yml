@@ -25,5 +25,5 @@ jobs:
       uses: codecov/codecov-action@v3
     - name: Probar demo
       run: |
-       tdak-demo --zones 3
-       tdak-demo --failure storage_failure
+       tdak-demo dns_failure --zones 3
+ 
