@@ -1,7 +1,5 @@
 # TDAK - Topological Kubernetes Failure Detection
-
 [![CI Tests](https://github.com/viri-X/tdak/actions/workflows/tests.yml/badge.svg)](https://github.com/viri-X/tdak/actions)
-[![Documentation Status](https://readthedocs.org/projects/tdak/badge/)](https://tdak.readthedocs.io/)
 
 **Detect anomalies in Kubernetes networks using persistent homology and topological data analysis**.
 
