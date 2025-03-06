@@ -37,25 +37,25 @@ Your feedback, bug reports, and ideas are invaluable at this early stage.
 
 - Explain:
 
-  -The problem you’re solving (e.g., "Detect slow network partitions using persistent homology")
+  - The problem you’re solving (e.g., "Detect slow network partitions using persistent homology")
 
-  -How it aligns with TDAK’s goal: bridging abstract topology and cloud infrastructure
+  - How it aligns with TDAK’s goal: bridging abstract topology and cloud infrastructure
 
-###4. Questions or Discussions
--Start a GitHub Discussion for open-ended ideas.
+### 4. Questions or Discussions
+- Start a GitHub Discussion for open-ended ideas.
 
--Example topics:
+- Example topics:
+ 
+  - "How to visualize topological features in Kubernetes?"
 
-  -"How to visualize topological features in Kubernetes?"
-
-  -"Could Morse theory improve failure detection?"
+  - "Could Morse theory improve failure detection?"
 
 ## Code Guidelines
--Documentation: Update docs/TDAK_DOCUMENTATION.md if your change affects functionality.
+- Documentation: Update docs/TDAK_DOCUMENTATION.md if your change affects functionality.
 
--Tests: Add tests in tests/ for new features.
+- Tests: Add tests in tests/ for new features.
 
--Style: Follow PEP8 (Python) and comment complex topological logic.
+- Style: Follow PEP8 (Python) and comment complex topological logic.
 
 ## First-Time Contributors
 New to GitHub? Check out [GitHub’s PR Guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
