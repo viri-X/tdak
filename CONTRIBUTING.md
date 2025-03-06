@@ -22,11 +22,10 @@ Your feedback, bug reports, and ideas are invaluable at this early stage.
    cd tdak
    pip install -r requirements.txt
    ```
-
-3.**Create a branch:**
-  ```bash
-  git checkout -b feature/your-feature-name
-  ```
+3. **Create a branch:**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 4. **Test your changes:**
    ```bash
    pytest tests/  # Ensure existing tests pass
@@ -34,29 +33,29 @@ Your feedback, bug reports, and ideas are invaluable at this early stage.
 5. **Submit a Pull Request (PR):** Link it to an existing issue (if applicable).
 
 ### 3. Feature Requests
-*Open an issue with the "enhancement" label.
+- Open an issue with the "enhancement" label.
 
-*Explain:
+- Explain:
 
-  *The problem you’re solving (e.g., "Detect slow network partitions using persistent homology")
+  -The problem you’re solving (e.g., "Detect slow network partitions using persistent homology")
 
-  *How it aligns with TDAK’s goal: bridging abstract topology and cloud infrastructure
+  -How it aligns with TDAK’s goal: bridging abstract topology and cloud infrastructure
 
 ###4. Questions or Discussions
-*Start a GitHub Discussion for open-ended ideas.
+-Start a GitHub Discussion for open-ended ideas.
 
-*Example topics:
+-Example topics:
 
-  *"How to visualize topological features in Kubernetes?"
+  -"How to visualize topological features in Kubernetes?"
 
-  *"Could Morse theory improve failure detection?"
+  -"Could Morse theory improve failure detection?"
 
 ## Code Guidelines
-*Documentation: Update docs/TDAK_DOCUMENTATION.md if your change affects functionality.
+-Documentation: Update docs/TDAK_DOCUMENTATION.md if your change affects functionality.
 
-*Tests: Add tests in tests/ for new features.
+-Tests: Add tests in tests/ for new features.
 
-*Style: Follow PEP8 (Python) and comment complex topological logic.
+-Style: Follow PEP8 (Python) and comment complex topological logic.
 
 ## First-Time Contributors
 New to GitHub? Check out [GitHub’s PR Guide](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
