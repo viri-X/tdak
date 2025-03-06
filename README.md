@@ -40,7 +40,7 @@ pod_overload: Simulate resource exhaustion
 Example:
 
 ```bash
-# Simulate DNS failure in 5-zone cluster
+# Simulate DNS failure in 15-zone cluster
 tdak-demo dns_failure --zones 15
 ```
 
@@ -74,6 +74,16 @@ pytest tests/
 | DNS Failures          | Disable 50% dependencies                      | Broken edges in network complex           |
 | Storage Failures      | Max storage on 25% nodes                      | Metric space outliers                     |
 
+## License  
+[MIT](LICENSE) – Free for all uses.  
+*If this code helps your work, consider mentioning this project!*  
+
+
+## Supporting This Project 
+This tool is free and open-source. If you’d like to support future development, [let me know](mailto:sturla.mauricio@gmail.com) – I’d love to hear how you’re using it!  
+
+
 ## Author
 [Mauricio Sturla]  
 Email: sturla.mauricio@gmail.com 
+
