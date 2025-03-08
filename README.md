@@ -64,7 +64,7 @@ pytest tests/
 ```
 
 
-## Enhanced Failure Modes
+## Failure Modes
 
 | Failure Type          | Simulation Method                             | Topological Signature                     |
 |-----------------------|-----------------------------------------------|-------------------------------------------|
@@ -84,6 +84,6 @@ This tool is free and open-source. If you’d like to support future development
 
 
 ## Author
-[Mauricio Sturla]  
-Email: sturla.mauricio@gmail.com 
+Mauricio Sturla  
+Email: sturla.mauricio at gmail.com 
 
