@@ -21,40 +21,72 @@ diagrams = analyzer.compute_network_persistence(dependencies)
 
 ### The Kubernetes Network:
 **Mathematical definition:**
-At this stage of the project, the code moke a set of relevant features of the kubernetes network for the analysis to be done. In a future, the code will lift this relevant features of actual kubernetes networks to monitor and predict possible faiulures. It is important to notice that, moked or real, this set of relevant features are modeled as a mathematical abstraction that we will call "the network model",  or "the network " or "the kubernetes network" in an abuse of language. So, lets clarify whats our network model is for TDAK, up to now, and what is implemented in the code.
+Mathematical Definition: At this stage of the project, the code mocks a set of relevant features of the Kubernetes network for analysis. In the future, the code will extract these relevant features from actual Kubernetes networks to monitor and predict possible failures. It is important to note that, whether mocked or real, this set of relevant features is modeled as a mathematical abstraction that we will refer to as "the network model" or, in an abuse of language, simply "the network" or "the Kubernetes network."
 
--1. **Formal Network Model Definition**
-In our model, the network is a set of interconnected devices (nodes) that communicate via shared protocols. Mathematically, it’s a directed graph 
-$𝐺 = (𝑉, 𝐸)$, where: 
- - $V$: Nodes (e.g., servers, routers, pods).
- - $E$: Edges (e.g., physical cables, wireless links, virtual connections).
------------------------------------------------------------------------------------------------
+## Semi-Formal Network Definition
 
--2. **Core Networking Layers (OSI Model)**
-Networks are structured into abstraction layers.
+### A network:
+Is a set of interconnected devices (nodes) that communicate via shared protocols. 
+Mathematically, it’s a **directed graph $G=(V,E)$**, where:
 
-**Layer 3 (Network Layer)**
- - **Function:** Routes data between nodes using IP addresses.
+-  $V$: **Nodes** (e.g., servers, routers, pods).
+    
+- $E$: **Edges** (e.g., physical cables, wireless links, virtual connections).    
 
- - **IP Address:** A unique identifier for a node (e.g., 192.168.1.2).
+### Core Networking Layers (OSI Model)
 
-  - Analogous to coordinates in a graph $G$.
+Networks are structured into abstraction layers. For Kubernetes, focus on:
 
- - **Subnet:** A subset of IP addresses (e.g., 192.168.1.0/24).
+#### Layer 3 (Network Layer)
 
-**Layer 4 (Transport Layer)**
- - **Function:** Manages end-to-end communication (reliability, ports).
+- **Function**: Routes data between nodes using IP addresses.
+    
+- **IP Address**: A unique identifier for a node (e.g., 192.168.1.2). Analogous to coordinates in a graph $G$.
+    
+- **Subnet**: A subset of IP addresses (e.g., 192.168.1.0/24).
+    
 
- - **TCP:** Connection-oriented protocol (like a handshake-proof function).
+#### Layer 4 (Transport Layer)
 
- - **UDP:** Connectionless protocol (like broadcasting a value).
+- **Function**: Manages end-to-end communication (reliability, ports).
+    
+- **TCP**: Connection-oriented protocol (like a handshake-proof function).
+    
+- **UDP**: Connectionless protocol (like broadcasting a value).
+    
 
-**Layer 7 (Application Layer)**
- - **Function:** User-facing protocols (HTTP, DNS).
+#### Layer 7 (Application Layer)
 
- - **DNS:** Maps domain names (e.g., google.com) to IP addresses (like a hash function).
+- **Function**: User-facing protocols (HTTP, DNS).
+    
+- **DNS**: Maps domain names (e.g., google.com) to IP addresses (like a hash function).
+    
 
+## Kubernetes Networking: Building Blocks
 
+### Formal Definitions
+
+- **Pod**:
+    
+    - A group of containers sharing resources (network namespace, storage).        
+    - Represented as a node $v \in V$.
+        
+- **Service**:
+    
+    - An abstraction that exposes a set of Pods as a single endpoint.        
+    - Mathematically, a service $S$ is a function $S:Request \to Pod$.
+        
+- **Ingress**:
+    
+    - Routes external traffic to services (like a surjective function).
+        
+- **CNI (Container Network Interface)**:
+    
+    - A plugin that assigns IPs to Pods and connects them (defines edge creation rules in $G$).        
+
+.
+.
+.
 
 ## 2. Installation Guide
 ### Kubernetes Integration
